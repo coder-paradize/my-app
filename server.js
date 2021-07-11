@@ -8,7 +8,6 @@ var mongoClient= require('mongodb').MongoClient;
 const { MongoClient } = require('mongodb');
 const { Console } = require('console');
 const { userInfo } = require('os');
-//app.use(express.urlencoded());
 //app.use(express.json());       // to support JSON-encoded bodies
 
 app.use(express.raw({type: "application/json"}));
