@@ -1,0 +1,82 @@
+<html>
+    <head>
+    <script>
+        function editProfile(){
+            document.querySelector('.container').style.display='none'
+            document.querySelector('.container-edit').style.display='block'
+
+            const name=document.querySelector("#name").textContent
+            document.querySelector('#input-name').value = name;
+
+            const email=document.querySelector("#email").textContent
+            document.querySelector('#input-email').value = email;
+
+            const intersts=document.querySelector("#intersts").textContent
+            document.querySelector('#input-intersts').value = intersts;
+        }
+
+        function saveProfile(){
+            document.querySelector("#name").textContent = document.querySelector("#input-name").value;
+            document.querySelector("#email").textContent = document.querySelector("#input-email").value;
+            document.querySelector("#intersts").textContent = document.querySelector("#input-intersts").value;
+            //document.getElementById('editProfile').submit();
+            document.querySelector('.container').style.display='block'
+            document.querySelector('.container-edit').style.display='none'
+                
+        }
+        function hideLayer(){
+            document.querySelector('.container').style.display='block'
+            document.querySelector('.container-edit').style.display='none'
+
+        }
+    </script>
+    
+    <style>
+        button {
+          display: inline-block;
+          background-color: #7b38d8;
+          border-radius: 10px;
+          border: 4px double #cccccc;
+          color: #eeeeee;
+          text-align: center;
+          font-size: 28px;
+          padding: 20px;
+          width: 200px;
+          -webkit-transition: all 0.5s;
+          -moz-transition: all 0.5s;
+          -o-transition: all 0.5s;
+          transition: all 0.5s;
+          cursor: pointer;
+          margin: 5px;
+        }
+      </style>
+      </head>
+    <body onload="hideLayer()">
+        <div class='container'>
+            <h1 id='header'> User Profile </h1>
+            <img src='profile-picture'><br>
+            Name : <h3 id='name'> Gurmeet</h3>
+            <hr>
+            email: <h3 id='email'>gurmeet.a.singh@ericsson.com</h3>
+            <hr>
+            intersts: <h3 id='intersts'>Coading</h3>
+            <hr>
+            <button class='button' onclick="editProfile()">Edit profile</button>
+        </div>
+        <form id='editProfile' method="post"  action="/update-profile">
+        <div class='container-edit'>            
+            <h1 id='header'> User Profile </h1>
+            <img src='profile-picture'>
+            <hr>            
+            <table>
+            <tr><td>Name :</td><td><input id='input-name' type='text'></td></tr>
+            
+            <tr><td>email:</td><td><input id='input-email' type='text'></td></tr> 
+            
+            <tr><td>intersts:</td><td><input id='input-intersts' type='text'></td></tr>
+            <tr><td colspan="2"><button type='submit' class='button' onclick="saveProfile()">Save Profile</button></td></tr>            
+          </table>
+         </div>
+    </form>           
+    </body>
+</html>
